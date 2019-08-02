@@ -11,6 +11,7 @@ from .forms import MoveForm
 def game_detail(request, id):
     game = get_object_or_404(Game, pk=id)
     context = {'game': game}
+    print(context)
     if game.is_users_move(request.user):
         context['form'] = MoveForm()
     return render(request,
